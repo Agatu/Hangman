@@ -29,51 +29,51 @@ namespace Hangman
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.labelChooseOption = new System.Windows.Forms.Label();
+            this.buttonChooseLetter = new System.Windows.Forms.Button();
+            this.buttonChooseWord = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // labelChooseOption
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(125, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(359, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Choose what you want to guess:";
+            this.labelChooseOption.AutoSize = true;
+            this.labelChooseOption.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelChooseOption.Location = new System.Drawing.Point(125, 23);
+            this.labelChooseOption.Name = "label1";
+            this.labelChooseOption.Size = new System.Drawing.Size(359, 32);
+            this.labelChooseOption.TabIndex = 0;
+            this.labelChooseOption.Text = "Choose what you want to guess:";
             // 
-            // button1
+            // buttonChooseLetter
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(44, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(267, 53);
-            this.button1.TabIndex = 1;
-            this.button1.Text = " single letter";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonChooseLetter.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonChooseLetter.Location = new System.Drawing.Point(44, 64);
+            this.buttonChooseLetter.Name = "button1";
+            this.buttonChooseLetter.Size = new System.Drawing.Size(267, 53);
+            this.buttonChooseLetter.TabIndex = 1;
+            this.buttonChooseLetter.Text = " single letter";
+            this.buttonChooseLetter.UseVisualStyleBackColor = true;
+            this.buttonChooseLetter.Click += new System.EventHandler(this.buttonChooseLetter_Click);
             // 
-            // button2
+            // buttonChooseWord
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(317, 64);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(267, 53);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "whole word(s)";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonChooseWord.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonChooseWord.Location = new System.Drawing.Point(317, 64);
+            this.buttonChooseWord.Name = "button2";
+            this.buttonChooseWord.Size = new System.Drawing.Size(267, 53);
+            this.buttonChooseWord.TabIndex = 2;
+            this.buttonChooseWord.Text = "whole word(s)";
+            this.buttonChooseWord.UseVisualStyleBackColor = true;
+            this.buttonChooseWord.Click += new System.EventHandler(this.buttonChooseWord_Click);
             // 
             // GameOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 160);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonChooseWord);
+            this.Controls.Add(this.buttonChooseLetter);
+            this.Controls.Add(this.labelChooseOption);
             this.MaximizeBox = false;
             this.Name = "GameOptions";
             this.Text = "GameOptions";
@@ -84,8 +84,8 @@ namespace Hangman
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label labelChooseOption;
+        private System.Windows.Forms.Button buttonChooseLetter;
+        private System.Windows.Forms.Button buttonChooseWord;
     }
 }

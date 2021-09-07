@@ -29,30 +29,29 @@ namespace Hangman
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.btnStarGame = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelCapital = new System.Windows.Forms.Label();
+            this.labelGuessType = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnHint = new System.Windows.Forms.Button();
+            this.labelHintText = new System.Windows.Forms.Label();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.labelTriesLeft = new System.Windows.Forms.Label();
+            this.labelCounter = new System.Windows.Forms.Label();
+            this.labelScoreInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // labelDescription
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(108, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(446, 32);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Guess the capital of one of the countrys.";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDescription.Location = new System.Drawing.Point(130, 96);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(453, 32);
+            this.labelDescription.TabIndex = 2;
+            this.labelDescription.Text = "Guess the capital of one of the countries.";
+            this.labelDescription.Click += new System.EventHandler(this.labelDescription_Click);
             // 
             // btnStarGame
             // 
@@ -66,150 +65,145 @@ namespace Hangman
             this.btnStarGame.UseVisualStyleBackColor = true;
             this.btnStarGame.Click += new System.EventHandler(this.btnStartGame_Click);
             // 
-            // label2
+            // labelCapital
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(187, 141);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 37);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "__________";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.labelCapital.AutoSize = true;
+            this.labelCapital.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCapital.Location = new System.Drawing.Point(304, 141);
+            this.labelCapital.Name = "labelCapital";
+            this.labelCapital.Size = new System.Drawing.Size(24, 37);
+            this.labelCapital.TabIndex = 4;
+            this.labelCapital.Text = " ";
+            this.labelCapital.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelCapital.Click += new System.EventHandler(this.labelCapital_Click);
             // 
-            // label3
+            // labelGuessType
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(38, 274);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 32);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Guess a letter:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.labelGuessType.AutoSize = true;
+            this.labelGuessType.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelGuessType.Location = new System.Drawing.Point(38, 274);
+            this.labelGuessType.Name = "labelGuessType";
+            this.labelGuessType.Size = new System.Drawing.Size(164, 32);
+            this.labelGuessType.TabIndex = 5;
+            this.labelGuessType.Text = "Guess a letter:";
+            this.labelGuessType.Click += new System.EventHandler(this.labelGuessType_Click);
             // 
             // textBox1
             // 
             this.textBox1.AllowDrop = true;
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(304, 271);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(217, 39);
             this.textBox1.TabIndex = 6;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label4
+            // btnHint
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(38, 145);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 32);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Secret city:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.btnHint.Enabled = false;
+            this.btnHint.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnHint.Location = new System.Drawing.Point(38, 203);
+            this.btnHint.Name = "btnHint";
+            this.btnHint.Size = new System.Drawing.Size(154, 34);
+            this.btnHint.TabIndex = 10;
+            this.btnHint.Text = "Take a hint";
+            this.btnHint.UseVisualStyleBackColor = true;
+            this.btnHint.Click += new System.EventHandler(this.btnHint_Click);
             // 
-            // button2
+            // labelHintText
             // 
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(38, 203);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 34);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Take a hint";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.labelHintText.AutoSize = true;
+            this.labelHintText.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelHintText.Location = new System.Drawing.Point(217, 203);
+            this.labelHintText.Name = "labelHintText";
+            this.labelHintText.Size = new System.Drawing.Size(285, 30);
+            this.labelHintText.TabIndex = 11;
+            this.labelHintText.Text = "this will cost you some points";
             // 
-            // label5
+            // btnOK
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(217, 203);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(290, 30);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "This is the capital of: _________";
+            this.btnOK.Enabled = false;
+            this.btnOK.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnOK.Location = new System.Drawing.Point(651, 271);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(93, 40);
+            this.btnOK.TabIndex = 12;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // button3
+            // labelTriesLeft
             // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(651, 271);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 40);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "OK";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.labelTriesLeft.AutoSize = true;
+            this.labelTriesLeft.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTriesLeft.Location = new System.Drawing.Point(38, 462);
+            this.labelTriesLeft.Name = "labelTriesLeft";
+            this.labelTriesLeft.Size = new System.Drawing.Size(109, 32);
+            this.labelTriesLeft.TabIndex = 13;
+            this.labelTriesLeft.Text = "Tries left:";
+            this.labelTriesLeft.Click += new System.EventHandler(this.labelTriesLeft_Click);
             // 
-            // label6
+            // labelCounter
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(264, 410);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 32);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Tries left:";
+            this.labelCounter.AutoSize = true;
+            this.labelCounter.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelCounter.Location = new System.Drawing.Point(167, 436);
+            this.labelCounter.Name = "labelCounter";
+            this.labelCounter.Size = new System.Drawing.Size(56, 65);
+            this.labelCounter.TabIndex = 14;
+            this.labelCounter.Text = "6";
+            this.labelCounter.Click += new System.EventHandler(this.labelCounter_Click);
             // 
-            // label7
+            // labelScoreInfo
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(422, 410);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(33, 37);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "6";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label8.Location = new System.Drawing.Point(201, 482);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 47);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "  ";
+            this.labelScoreInfo.AutoSize = true;
+            this.labelScoreInfo.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelScoreInfo.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.labelScoreInfo.Location = new System.Drawing.Point(147, 527);
+            this.labelScoreInfo.Name = "labelScoreInfo";
+            this.labelScoreInfo.Size = new System.Drawing.Size(33, 40);
+            this.labelScoreInfo.TabIndex = 17;
+            this.labelScoreInfo.Text = "  ";
+            this.labelScoreInfo.Click += new System.EventHandler(this.labelScoreInfo_Click);
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 608);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelScoreInfo);
+            this.Controls.Add(this.labelCounter);
+            this.Controls.Add(this.labelTriesLeft);
+            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.labelHintText);
+            this.Controls.Add(this.btnHint);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelGuessType);
+            this.Controls.Add(this.labelCapital);
             this.Controls.Add(this.btnStarGame);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelDescription);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "Game";
-            this.Text = "a";
+            this.Text = "Hangman";
+            this.Load += new System.EventHandler(this.Game_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Button btnStarGame;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelCapital;
+        private System.Windows.Forms.Label labelGuessType;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnHint;
+        private System.Windows.Forms.Label labelHintText;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Label labelTriesLeft;
+        private System.Windows.Forms.Label labelCounter;
+        private System.Windows.Forms.Label labelScoreInfo;
     }
 }
 

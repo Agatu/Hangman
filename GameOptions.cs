@@ -27,7 +27,7 @@ namespace Hangman
             InitializeComponent();
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        public void buttonChooseLetter_Click(object sender, EventArgs e)
         {
 
             opt = GameMode.letterMode;
@@ -35,7 +35,7 @@ namespace Hangman
 
         }
 
-        public void button2_Click(object sender, EventArgs e)
+        public void buttonChooseWord_Click(object sender, EventArgs e)
         {
             opt = GameMode.wordMode;
             this.Close();

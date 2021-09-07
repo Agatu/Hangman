@@ -20,6 +20,7 @@ namespace Hangman
         char guessLetter;
         string guessWord;
         bool hit = false;
+        bool hint = false;
         int counter;
         GameOptions gopts = new GameOptions();
 
@@ -27,26 +28,34 @@ namespace Hangman
         public Game()
         {
             InitializeComponent();
+
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void labelDescription_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void labelCapital_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void labelGuessType_Click(object sender, EventArgs e)
         {
 
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)
         {
-            label7.Text = "6";
+            textBox1.Enabled = true;
+            btnOK.Enabled = true;
+            hint = false;
+            btnHint.Enabled = true;
+            labelHintText.Text = "this will cost you some points";
+            labelCounter.Text = "6";
+            counter = Int32.Parse(labelCounter.Text);
+            labelScoreInfo.Text = "";
             gopts.ShowDialog();
             try
             {
@@ -70,114 +79,187 @@ namespace Hangman
                 }
                 else
                 {
-                    label3.Text = "Guess a whole word(s)";
+                    labelGuessType.Text = "Guess a whole word(s)";
                     textBox1.MaxLength = 50;
                 }
 
                 Mask();
-                CountryMask();
                 sr.Dispose();
             }
             catch (Exception ev)
             {
                 Console.WriteLine(ev.Message);
             }
+
         }
 
 
         private void Mask()
         {
-            label2.Text = "";
+            labelCapital.Text = "";
             for (i = 0; i < capital.Length; i++)
-                label2.Text = label2.Text.Insert(i, "-");
+                labelCapital.Text = labelCapital.Text.Insert(i, "-");
         }
 
-        private void CountryMask()
+        private void btnHint_Click(object sender, EventArgs e)
         {
-            label5.Text = "";
-            for (i = 0; i < capital.Length; i++)
-                label5.Text = label5.Text.Insert(i, " ");
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
+            ShowHint();
+          
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ShowHint()
         {
-            label5.Text = "This is the capital of " + country;
+            counter = Int32.Parse(labelCounter.Text);
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (gopts.opt == GameMode.letterMode)
+            if (counter > 1)
             {
-                guessLetter = textBox1.Text[0];
-
-                for (i = 0; i < capital.Length; i++)
-                {
-                    if (Char.ToUpper(capital[i]) == Char.ToUpper(guessLetter))
-                    {
-                        hit = true;
-                        label2.Text = label2.Text.Remove(i, 1);
-                        label2.Text = label2.Text.Insert(i, guessLetter.ToString().ToUpper());
-
-                    }
-
-                }
-                textBox1.Text = "";
+                CounterChange();
+                labelHintText.Text = "This is the capital of " + country;
+                hint = true;
+                hit = false;
+                btnHint.Enabled = false;
             }
             else
             {
-                guessWord = textBox1.Text;
-
-                if (capital.ToUpper() == guessWord.ToUpper())
-                {
-                    hit = true;
-                    label2.Text = guessWord.ToString().ToUpper();
-                }
-
-                textBox1.Text = "";
+                MessageBox.Show("You do not have enough points to take a hint");
             }
-
-            if (label2.Text.ToUpper() == capital.ToUpper())
-                WonGame();
-
-
-            // Counter of tries left
-            if (!hit)
-            {
-                counter = Int32.Parse(label7.Text);
-                if (gopts.opt == GameMode.letterMode)
-                {
-                    counter--;
-                }
-                else if (gopts.opt == GameMode.wordMode)
-                {
-                    counter -= 2;
-                }
-                label7.Text = counter.ToString();
-
-            }
-
-            if (counter == 0)
-                LostGame();
-            hit = false;
 
         }
 
-        public void LostGame()
+
+        private void btnOK_Click(object sender, EventArgs e)
         {
-            label8.Text = "Game over - You lost! :(";
+            counter = Int32.Parse(labelCounter.Text);
+
+            try
+            {
+                if (textBox1.Enabled)
+                {
+                    if (gopts.opt == GameMode.letterMode)
+                    {
+                        guessLetter = textBox1.Text[0];
+
+                        for (i = 0; i < capital.Length; i++)
+                        {
+
+                            if (Char.ToUpper(capital[i]) == Char.ToUpper(guessLetter))
+                            {
+
+                                hit = true;
+                                labelCapital.Text = labelCapital.Text.Remove(i, 1);
+                                labelCapital.Text = labelCapital.Text.Insert(i, guessLetter.ToString().ToUpper());
+
+                            }
+                        }
+
+                    }
+
+                    else
+                    {
+                        guessWord = textBox1.Text;
+
+                        if (capital.ToUpper() == guessWord.ToUpper())
+                        {
+                            hit = true;
+                            labelCapital.Text = guessWord.ToString().ToUpper();
+                        }
+
+                    }
+                    textBox1.Text = "";
+
+                    CounterChange();
+
+                    if (labelCapital.Text.ToUpper() == capital.ToUpper())
+                        WonGame();
+                   
+                    if (counter == 0)
+                        LostGame();
+                    hit = false;
+
+                }
+            }
+            catch (Exception ee)
+            {
+                Console.WriteLine(ee.Message);
+                MessageBox.Show("Enter a letter");
+            }
+       
+        }
+        
+        private void CounterChange()
+        {
+            counter = Int32.Parse(labelCounter.Text);
+
+            if (!hit)
+            {
+
+                if (gopts.opt == GameMode.letterMode)
+                {
+                    if (counter > 0)
+                    {
+                        counter--;
+                    }
+                }
+                else if (gopts.opt == GameMode.wordMode)
+                {
+                    if (counter >= 2)
+                        counter -= 2;
+                    else
+                    {
+                        MessageBox.Show("You do not have enough points to try a whole word");
+                    }
+                }
+                labelCounter.Text = counter.ToString();
+                
+            }
+
+        }
+
+        private void LostGame()
+        {
+            labelScoreInfo.Text = "Game over - You lost!";
+            textBox1.Enabled = false;
+            btnOK.Enabled = false;
         }
 
         private void WonGame()
         {
-            label8.Text = "Congratulations - You won! :)";
+            labelScoreInfo.Text = "Congratulations - You won!";
+            textBox1.Enabled = false;
+            btnOK.Enabled = false;
         }
 
-    }
+        private void labelCounter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTriesLeft_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureGallows_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelScoreInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+    }   
 }
 
